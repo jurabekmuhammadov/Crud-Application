@@ -74,6 +74,7 @@ $timingFunction: ease;
     }
     tbody {
       tr {
+        transition: 0.2s;
         &:hover {
           background-color: #9d9d9d50;
           cursor: pointer;
@@ -156,7 +157,7 @@ $timingFunction: ease;
 }
 
 .shadow-dark {
-  background: linear-gradient(145deg, #23282c, #1e2125);
+  background: linear-gradient(145deg, #485263, #16191e);
   box-shadow: rgba(46, 65, 240, 0.4) 0px 5px, rgba(46, 65, 240, 0.3) 0px 10px,
     rgba(46, 65, 240, 0.2) 0px 15px, rgba(46, 65, 240, 0.1) 0px 20px,
     rgba(46, 65, 240, 0.05) 0px 25px;
