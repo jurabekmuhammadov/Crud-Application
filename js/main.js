@@ -2,14 +2,13 @@ const groupsFilter = document.querySelector(".groups-select");
 const groupsSelect = document.querySelector(".groups-select-modal");
 const addStudentForm = document.querySelector(".add-student-form");
 const studentTableBody = document.querySelector(".table-students tbody");
-const studentModal = document.getElementById(".student-modal");
+const studentModal = document.getElementById("studentModal");
 const addStudentBtn = document.querySelector(".add-student-btn");
 const openModal = document.querySelector(".open-modal");
 const searchInput = document.querySelector(".search-input");
 const addressFilter = document.querySelector(".address-filter");
 const addressSelect = document.querySelector("#address");
 const loading = document.querySelector(".loading");
-
 let studentJson = localStorage.getItem(STUDENTS);
 let students = JSON.parse(studentJson) || [];
 let selected = null;
@@ -18,7 +17,7 @@ let category = "All";
 let address = "Address";
 
 groupsFilter.innerHTML += `<option value="All">All</option>`;
-addressFilter.innerHTML += `<option value="Address">Address</option>`
+addressFilter.innerHTML += `<option value="Address">Address</option>`;
 GROUPS.map((gr) => {
   groupsFilter.innerHTML += `<option value="${gr}">${gr}</option>`;
   groupsSelect.innerHTML += `<option value="${gr}">${gr}</option>`;
@@ -53,8 +52,9 @@ addStudentForm.addEventListener("submit", function (e) {
         }
       });
     }
-    // bootstrap.Modal.getInstance(studentModal).hide();
+    bootstrap.Modal.getInstance(studentModal).hide();
     this.reset();
+    location.reload();
   } else {
     this.classList.add("was-validated");
   }
@@ -124,7 +124,7 @@ function getStudents() {
       studentTableBody.innerHTML += getStudentRow(student, id);
     });
   } else {
-    studentTableBody.innerHTML = `<td colspan="12"><div class="text-center alert alert-warning" role="alert">
+    studentTableBody.innerHTML = `<td class="no-students" colspan="12"><div class="text-center alert alert-warning" role="alert">
   No Students !
 </div></td>`;
   }
@@ -137,6 +137,7 @@ function deleteStudent(id) {
   if (check) {
     students.splice(id, 1);
     localStorage.setItem(STUDENTS, JSON.stringify(students));
+    location.reload();
     getStudents();
   }
 }

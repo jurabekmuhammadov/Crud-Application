@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Ultra&display=swap");
+:root {
+  --bs-dark: #212529;
+  --bs-light: #fff;
+}
+
 *,
 *::after,
 *::before {
@@ -26,6 +31,7 @@
   font-size: 40px;
   font-family: "Ultra", serif;
   margin: 0;
+  transition: 0.5s;
 }
 .main__container .input__block {
   width: 100%;
@@ -37,17 +43,31 @@
 .main__container .input__block .search-input {
   width: 60%;
   margin: 0 !important;
+  transition: 0.5s;
 }
 .main__container .input__block .groups-select {
+  border: none;
   color: white;
   width: 14%;
 }
 .main__container .input__block .address-filter {
+  border: none;
   color: white;
   width: 14%;
 }
 .main__container .input__block #add {
   width: 12%;
+}
+.main__container .table-students thead tr th {
+  border: none !important;
+  transition: 0.5s;
+}
+.main__container .table-students tbody tr:hover {
+  background-color: rgba(157, 157, 157, 0.3137254902);
+  cursor: pointer;
+}
+.main__container .table-students tbody tr .no-students:hover {
+  background-color: transparent !important;
 }
 .main__container .table-students tbody tr .end {
   display: flex;
@@ -61,10 +81,76 @@
   gap: 5px;
 }
 
+.dark .main__container h1 {
+  color: white;
+}
+.dark .main__container .input__block .search-input {
+  border: none;
+  box-shadow: 0 0 10px 5px #6e6e6e;
+}
+.dark .main__container .table-students thead tr th {
+  color: #ff0d00;
+}
+.dark .main__container .table-students tbody tr {
+  border-radius: 10px;
+}
+.dark .main__container .table-students tbody tr th {
+  color: #e79c10;
+  border-bottom: 1px solid white;
+}
+.dark .main__container .table-students tbody tr td {
+  border-bottom: 1px solid white;
+  color: white;
+}
+.dark .main__container .table-students tbody tr .no-students {
+  border: none;
+}
+
+.theme-button {
+  border: none;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.theme-button:hover {
+  opacity: 0.8;
+}
+
+.shadow-dark {
+  background: linear-gradient(145deg, #23282c, #1e2125);
+  box-shadow: rgba(46, 65, 240, 0.4) 0px 5px, rgba(46, 65, 240, 0.3) 0px 10px, rgba(46, 65, 240, 0.2) 0px 15px, rgba(46, 65, 240, 0.1) 0px 20px, rgba(46, 65, 240, 0.05) 0px 25px;
+}
+
+.shadow-light {
+  box-shadow: rgba(255, 0, 0, 0.4) 0px 5px, rgba(255, 0, 0, 0.3) 0px 10px, rgba(255, 0, 0, 0.2) 0px 15px, rgba(255, 0, 0, 0.1) 0px 20px, rgba(255, 0, 0, 0.05) 0px 25px;
+}
+
+@keyframes change {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.4);
+  }
+}
+.change {
+  animation-name: change;
+  animation-duration: 1s;
+  animation-direction: alternate;
+}
+
 #studentModal {
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 81, 255, 0.3137254902);
+  background-color: rgba(87, 140, 255, 0.2352941176);
 }
 #studentModal .modal-dialog .modal-content .modal-body {
   display: flex;
